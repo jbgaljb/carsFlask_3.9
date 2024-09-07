@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .car-info {
+            font-size: 14px;
+            color: #666;
+        }
+        .car-price {
+            font-size: 16px;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Inventory</h1>
+    <ul>
+        {% for item in data %}
+            <li>
+                <a href="{{ url_for('details', id=item[0]) }}">
+                    {{ item[1] }} {{ item[2] }} ({{ item[3] }})
+                </a>
+                <p class="car-info">
+                    <strong>Year:</strong> {{ item[3] }} | 
+                    <strong>Price:</strong> <span class="car-price">${{ item[4] | round(2) }}</span>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

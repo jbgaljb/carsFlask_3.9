@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car[1] }} {{ car[2] }} Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .car-details {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            max-width: 600px;
+            margin: auto;
+        }
+        .car-details img {
+            width: 100%;
+            height: auto;
+        }
+        .car-info {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .car-info strong {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="car-details">
+        <h1>{{ car[1] }} {{ car[2] }}</h1>
+        <img  width = "100px" src="{{ url_for('static', filename='assets/car-shine.jpg') }}" alt="{{ car[1] }} {{ car[2] }}">
+        <div class="car-info">
+            <p><strong>Year:</strong> {{ car[3] }}</p>
+            <p><strong>Price:</strong> ${{ car[4] | round(2) }}</p>
+        </div>
+        <a href="/list">Back to Car List</a>
+    </div>
+</body>
+</html>
